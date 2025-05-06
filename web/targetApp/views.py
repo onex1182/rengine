@@ -123,7 +123,8 @@ def add_target(request, slug):
 
                             if organization_name:
                                 organization = None
-                                if Organization.objects.filter(name=organization_name).exists():
+                                organization_query = Organization.objects.filter(name=organization_name)
+                                if organization_query.exists():
                                     organization = organization_query[0]
                                 else:
                                     organization = Organization.objects.create(
